@@ -8,10 +8,9 @@ node {
    }
 
    stage('test') {
-     def myTestContainer = docker.image('python:2.7.14')
+     def myTestContainer = docker.image('rubyan/hello:latest')
      myTestContainer.pull()
      myTestContainer.inside {
-       sh 'sudo pip install -U pytest'
        sh 'pytest'
      }
    }
