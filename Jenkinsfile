@@ -17,7 +17,7 @@ node {
                                     
    stage('docker build/push') {            
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-       def app = docker.build("rubyan/docker-jenkins-demo:${commit_id}", '--build-args http_proxy=$http_proxy .').push()
+       def app = docker.build("rubyan/docker-jenkins-demo:${commit_id}", '--build-arg http_proxy=$http_proxy .').push()
      }                                     
    }                                       
 }     
